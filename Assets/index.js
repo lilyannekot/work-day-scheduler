@@ -2,6 +2,15 @@
 var currentDay = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(currentDay);
 
+// Allows clicking of save button
+$('.saveBtn').on('click', function(){
+    var meeting = $(this).siblings('.description').val();
+    var time = $(this).siblings('.time-block').text();
+
+    // Saves calendar events to local storage
+    localStorage.setItem(time, meeting);
+})
+
 function plannerColors() {
     var currentTime = moment().hours();
 
@@ -18,17 +27,6 @@ function plannerColors() {
             $(this).addClass('future');
         }
     })
-}
-
-// Allows clicking of save button
-$('.saveBtn').on('click', function(){
-    var meeting = $(this).siblings('.description').val();
-    var time = $(this).siblings('.time-block').text();
-})
-
-// Saves calendar events to local storage
-function saveMeetings() {
-    localStorage.setItem(time, meeting);
 }
 
 // Get calendar events from local storage when page is refreshed
