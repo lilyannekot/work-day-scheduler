@@ -2,7 +2,10 @@
 var currentDay = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(currentDay);
 
-// Allows clicking of save button
+var meeting = $(this).siblings('.description').val();
+var time = $(this).siblings('.time-block').attr('id');
+
+// Allows clicking of save button and saves events to local storage
 $('.saveBtn').on('click', function(){
     var meeting = $(this).siblings('.description').val();
     var time = $(this).siblings('.time-block').text();
@@ -31,13 +34,8 @@ function plannerColors() {
 
 // Get calendar events from local storage when page is refreshed
 function showMeetings() {
-    $('.time-block') = each.function();
-        var blockTime = $(this).text();
-        var currentMeeting = localStorage.getItem(blockTime);
-
-        if(currentMeeting !== null) {
-            $(this).siblings('.meeting').var(currentMeeting);
-        }
-}
+    $('textarea') = each.function()
+    localStorage.getItem(time, meeting);
+    }
 
 plannerColors();
